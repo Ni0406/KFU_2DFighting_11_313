@@ -36,8 +36,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![KFU_SHOP_EXAMPLE][product-screenshot]](https://example.com)
+Файтинги делятся на двухмерные и трёхмерные — причём речь не о графике. В двухмерных схватки кипят в одной плоскости, в трёхмерных разрешено отходить вглубь арены. Guilty Gear Xrd: Sign — «плоский» файтинг с бойцами в 3D и фонами в 2D. Mortal Kombat 11 — тоже «плоский», но с трёхмерными персонажами и задниками. А Soulcalibur VI — «объёмный», ведь тут дозволено передвигаться по восьми направлениям. Наш проект будет "плоским" файтингом с бойцами и фонами в 2D. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -46,12 +45,7 @@
 ### Built With
 
 
-![Example](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-
-![EXample](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
-
-![Example](Bootstrap.com)
-
+![Godot]([https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54](https://godotengine.org))
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -90,8 +84,8 @@ our game will help you relax and unwind
 
 
 1. Dima - [@neroflyor](https://t.me/neroflyor) - example@com
-2. Pasha - [@HekT0_0](https://t.me/HekT0_0) - example@com
-3. Ruslan Suleymanov - [@aisho0o](https://t.me/aisho0o) - example@com
+2. Pasha - [@HekT0_0](https://t.me/HekT0_0) - pavelnikolaev2101@gmail.com
+3. Ruslan Suleymanov - [@aisho0o](https://t.me/aisho0o) - ruslsuley.1@mail.com
 4. Albert Kamaltdinov - [@abzezba](https://t.me/abzezba) - example@com
 5. Repository owner: Nikita Chukhlantsev - [@Nchux](https://t.me/Nchux) - ncuhlancev27@gmail.com
 
