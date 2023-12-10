@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/PythonGuySup/KFU_SHOP_11_313">
+  <a href="https://github.com/Ni0406/KFU_2DFighting_11_313">
     <img src="images/logo.jpg" alt="Logo" width="100" height="100">
   </a>
 
