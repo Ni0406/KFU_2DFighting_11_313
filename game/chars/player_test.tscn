@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpj5ragnw4s7n"]
+[gd_scene load_steps=20 format=3 uid="uid://cpj5ragnw4s7n"]
 
 [ext_resource type="Script" path="res://game/chars/player_test.gd" id="1_rljj2"]
 [ext_resource type="Texture2D" uid="uid://kwwq18h8eda5" path="res://Individual Sprites/adv.png" id="1_smkh8"]
@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://cieceasa1m3hm" path="res://Individual Sprites/run.png" id="4_6jydn"]
 [ext_resource type="Texture2D" uid="uid://qcvnno87x540" path="res://Individual Sprites/jump.png" id="5_auwmi"]
 [ext_resource type="Texture2D" uid="uid://bf7he5w6ad23x" path="res://Individual Sprites/fall.png" id="6_y0mhu"]
+[ext_resource type="PackedScene" uid="uid://fw72f7dnjfni" path="res://game/resources/overlap/hurtbox.tscn" id="7_r3adr"]
+[ext_resource type="PackedScene" uid="uid://d4b6qtk2wb5rw" path="res://game/resources/UI/healthBar.tscn" id="8_wdq6h"]
+[ext_resource type="PackedScene" uid="uid://b7a73s73u638a" path="res://hitbox.tscn" id="9_m8ait"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwq72"]
+size = Vector2(13.1579, 11.3846)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0fmnw"]
 radius = 16.0
@@ -62,6 +68,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/SwordHit/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_osmlv"]
 length = 0.001
@@ -112,6 +130,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/SwordHit/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_o73nt"]
@@ -331,6 +361,10 @@ _data = {
 "run": SubResource("Animation_rb8gs")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snbla"]
+radius = 19.0
+height = 54.0
+
 [node name="PlayerTest" type="CharacterBody2D"]
 script = ExtResource("1_rljj2")
 
@@ -339,6 +373,13 @@ position = Vector2(519, 214)
 scale = Vector2(1.9, 2.10811)
 texture = ExtResource("1_smkh8")
 hframes = 5
+
+[node name="SwordHit" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/SwordHit"]
+position = Vector2(17.3684, 3.79487)
+shape = SubResource("RectangleShape2D_vwq72")
+disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(521, 223)
@@ -349,3 +390,16 @@ autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_586dd")
 }
+
+[node name="hurtbox" parent="." instance=ExtResource("7_r3adr")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(523, 224)
+shape = SubResource("CapsuleShape2D_snbla")
+
+[node name="TextureProgressBar" parent="." instance=ExtResource("8_wdq6h")]
+
+[node name="Hitbox" parent="." instance=ExtResource("9_m8ait")]
+position = Vector2(273, 51)
+
+[connection signal="area_entered" from="Sprite2D/SwordHit" to="." method="_on_sword_hit_area_entered"]
